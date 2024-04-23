@@ -1,9 +1,16 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 
-const int SQUARE_SIZE = 100;
-const int WIDTH = 700;
-const int HEIGHT = 400;
+const int SQUARE_SIZE = 20;
+const int WIDTH = 800;
+const int HEIGHT = 800;
+
+class Camera
+{
+    private:
+        int cameraX = 0;
+        int cameraY = 0;
+};
 
 
 class Game
@@ -101,23 +108,74 @@ class Game
             board = newBoard;
         }
 
+        void getPosWithMousePos(int &x, int &y)
+        {
+            int i = 0;
+            int j = 0;
+
+            while (x > SQUARE_SIZE)
+            {
+                i++;
+                x -= SQUARE_SIZE;
+            }
+
+            while (y > SQUARE_SIZE)
+            {
+                j++;
+                y -= SQUARE_SIZE;
+            }
+
+            x = i;
+            y = j;
+        }
+
+        void handleClick(int x, int y, bool value)
+        {
+            getPosWithMousePos(x, y);
+            board[x][y] = value;
+        }
+        
+
     public:
+
         Game() : window(sf::VideoMode(WIDTH+1, HEIGHT+1), "Le Jeu de la Vie") {
             board = std::vector<std::vector<bool>>(WIDTH/SQUARE_SIZE, std::vector<bool>(HEIGHT/SQUARE_SIZE, false));
-            board[2][1] = true;
-            board[2][2] = true;
-            board[2][3] = true;
         }
 
         void run()
         {
+            bool leftClickValue = false;
             while (window.isOpen())
             {
                 sf::Event event;
                 while(window.pollEvent(event)) 
                 {
                     if(event.type == sf::Event::Closed)
+                    {
                         window.close();
+                    }
+
+                    else if (event.type == sf::Event::MouseButtonPressed && event.mouseButton.button == sf::Mouse::Left)
+                    {
+                        int x = sf::Mouse::getPosition(window).x;
+                        int y = sf::Mouse::getPosition(window).y;
+                        if (x >= 0 && x <= WIDTH && y >= 0 && y <= HEIGHT)
+                        {
+                            getPosWithMousePos(x, y);
+                            leftClickValue = (board[x][y]) ? false : true;
+                            handleClick(sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y, leftClickValue);
+                        }
+                        
+                    }
+                    else if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+                    {
+                        int x = sf::Mouse::getPosition(window).x;
+                        int y = sf::Mouse::getPosition(window).y;
+                        if (x >= 0 && x <= WIDTH && y >= 0 && y <= HEIGHT)
+                        {
+                            handleClick(sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y, leftClickValue);
+                        }
+                    }
                     else if (event.type == sf::Event::KeyPressed)
                     {
                         if (event.key.code == sf::Keyboard::Enter)
@@ -125,8 +183,6 @@ class Game
                             nextGeneration();
                         }
                     }
-                    /*else if (event.type == sf::Event::MouseButtonPressed)
-                        handleClick(event.mouseButton.x, event.mouseButton.y);*/
                 }
 
                 window.clear(sf::Color::White);

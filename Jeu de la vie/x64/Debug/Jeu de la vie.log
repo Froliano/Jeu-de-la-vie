@@ -1,8 +1,8 @@
 ﻿  Jeu de la vie.cpp
-C:\Users\froli\Desktop\Cours\C++\Jeu de la vie\Jeu de la vie\Jeu de la vie.cpp(34,34): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
-C:\Users\froli\Desktop\Cours\C++\Jeu de la vie\Jeu de la vie\Jeu de la vie.cpp(41,37): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
-C:\Users\froli\Desktop\Cours\C++\Jeu de la vie\Jeu de la vie\Jeu de la vie.cpp(51,46): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
-C:\Users\froli\Desktop\Cours\C++\Jeu de la vie\Jeu de la vie\Jeu de la vie.cpp(51,31): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
-C:\Users\froli\Desktop\Cours\C++\Jeu de la vie\Jeu de la vie\Jeu de la vie.cpp(59,49): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
-C:\Users\froli\Desktop\Cours\C++\Jeu de la vie\Jeu de la vie\Jeu de la vie.cpp(59,32): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+C:\Users\froli\Desktop\Cours\C++\Jeu de la vie\Jeu de la vie\Jeu de la vie.cpp(41,34): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+C:\Users\froli\Desktop\Cours\C++\Jeu de la vie\Jeu de la vie\Jeu de la vie.cpp(48,37): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+C:\Users\froli\Desktop\Cours\C++\Jeu de la vie\Jeu de la vie\Jeu de la vie.cpp(58,46): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+C:\Users\froli\Desktop\Cours\C++\Jeu de la vie\Jeu de la vie\Jeu de la vie.cpp(58,31): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+C:\Users\froli\Desktop\Cours\C++\Jeu de la vie\Jeu de la vie\Jeu de la vie.cpp(66,49): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+C:\Users\froli\Desktop\Cours\C++\Jeu de la vie\Jeu de la vie\Jeu de la vie.cpp(66,32): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
   Jeu de la vie.vcxproj -> C:\Users\froli\Desktop\Cours\C++\Jeu de la vie\x64\Debug\Jeu de la vie.exe
