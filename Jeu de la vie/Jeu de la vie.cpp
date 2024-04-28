@@ -8,7 +8,7 @@ const int HEIGHT = 800;
 class Camera
 {
     private:
-        int cameraX = 0;
+        int cameraX = 1;
         int cameraY = 0;
 };
 
