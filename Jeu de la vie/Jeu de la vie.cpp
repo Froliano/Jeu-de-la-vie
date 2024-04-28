@@ -1,5 +1,6 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
+#include <deque>
 
 const int SQUARE_SIZE = 20;
 const int WIDTH = 800;
@@ -16,7 +17,7 @@ class Camera
 class Game
 {
     private:
-        std::vector<std::vector<bool>> board;
+        std::deque<std::deque<bool>> board;
         sf::RenderWindow window;
 
         void drawBoard() {
@@ -69,7 +70,7 @@ class Game
 
         void nextGeneration()
         {
-            std::vector<std::vector<bool>> newBoard = std::vector<std::vector<bool>>(WIDTH / SQUARE_SIZE, std::vector<bool>(HEIGHT / SQUARE_SIZE, false));
+            std::deque<std::deque<bool>> newBoard = std::deque<std::deque<bool>>(WIDTH / SQUARE_SIZE, std::deque<bool>(HEIGHT / SQUARE_SIZE, false));
 
             for (int x = 0; x < WIDTH / SQUARE_SIZE; ++x)
             {
@@ -139,7 +140,7 @@ class Game
     public:
 
         Game() : window(sf::VideoMode(WIDTH+1, HEIGHT+1), "Le Jeu de la Vie") {
-            board = std::vector<std::vector<bool>>(WIDTH/SQUARE_SIZE, std::vector<bool>(HEIGHT/SQUARE_SIZE, false));
+            board = std::deque<std::deque<bool>>(WIDTH/SQUARE_SIZE, std::deque<bool>(HEIGHT/SQUARE_SIZE, false));
         }
 
         void run()
